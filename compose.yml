@@ -1,0 +1,17 @@
+services:
+  mongodb:
+    build:
+      context: .
+      dockerfile: Containerfile
+
+    image: localhost/mongodb:9.0
+
+    container_name: mongodb
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - ./mongodb_data:/data/db:z
+
+    restart: unless-stopped
